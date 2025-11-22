@@ -88,7 +88,7 @@ if (TPDE_ENABLE_ENCODEGEN OR TPDE_ENABLE_LLVM)
                 "(supported versions: ${TPDE_LLVM_SUPPORTED_VERSIONS})")
     endif ()
 
-    if (LLVM_VERSION_MAJOR LESS 20)
+    if (NOT MSVC AND LLVM_VERSION_MAJOR LESS 20)
         # See https://github.com/llvm/llvm-project/pull/123578
         add_compile_options(-Wno-error=cpp)
     endif ()

@@ -56,8 +56,12 @@
   #define TPDE_LIFETIMEBOUND
 #endif
 
-#if __has_builtin(__builtin_assume_separate_storage)
-  #define TPDE_NOALIAS(a, b) __builtin_assume_separate_storage(a, b)
+#ifndef _MSC_VER
+  #if __has_builtin(__builtin_assume_separate_storage)
+    #define TPDE_NOALIAS(a, b) __builtin_assume_separate_storage(a, b)
+  #else
+    #define TPDE_NOALIAS(a, b)
+  #endif
 #else
   #define TPDE_NOALIAS(a, b)
 #endif

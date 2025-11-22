@@ -6,8 +6,10 @@
 #include "tpde/base.hpp"
 #include "tpde/util/BumpAllocator.hpp"
 #include "tpde/util/SmallVector.hpp"
+#include <array>
 #include <cstring>
 #include <span>
+#include <string_view>
 #include <vector>
 
 namespace tpde {
